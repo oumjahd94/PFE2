@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="R" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${java.io.tmpdir}/accountmanagement.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-21t [%-32C{1}] %d{dd/MM/yy HH:mm:ss,SSS} %-5p : %m%n" />
+		</layout>
+	</appender>
+	<category name="org.hibernate">
+		<priority value="trace" />
+	</category>
+	<category name="com.hkibou.accountmanagement">
+		<priority value="trace" />
+	</category>
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="R" />
+	</root>
+</log4j:configuration>
